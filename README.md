@@ -8,6 +8,7 @@ This library enables easy integration of Bootstrap 5 components like **modals**,
 - **Accordions**: Automatically toggles accordion panels based on the URL hash.
 - **Tabs**: Switches to the correct tab when the URL contains a hash of the tab's `id`.
 - **Tooltips & Popovers**: Optionally initialize tooltips and popovers on the page based on data attributes, with control via configuration.
+- **Enable/Disable Components**: Use the `data-linkable` attribute to control whether an element can be linked to via URL hash. If `data-linkable="false"` is set, that element will be ignored by the library.
 
 ## Installation
 
