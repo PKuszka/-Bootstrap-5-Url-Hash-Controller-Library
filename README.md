@@ -19,12 +19,12 @@ You can install this library by cloning the repository or by including the scrip
 <script src="https://cdn.jsdelivr.net/gh/PKuszka/Bootstrap-5-URL-Hash-Controller-Library@main/BootstrapHashController.js"></script>
 ```
 
-
 Alternatively, you can clone the repository to use it locally:
 
 git clone https://github.com/PKuszka/Bootstrap-5-URL-Hash-Controller-Library.git
 
 Then include the BootstrapHashController.js script in your project.
+
 ##Usage
 
 Once the library is installed, it is ready to use. You do not need to initialize it manually; the library automatically hooks into your Bootstrap components when the page is loaded.
@@ -51,6 +51,7 @@ To make a modal open when the URL hash is set, ensure that the modal has an id a
     </div>
   </div>
 </div>
+
 ```
 
 Now, when the URL is yourpage.html#myModal, the modal will open automatically.
@@ -72,7 +73,8 @@ For accordions, make sure the accordion items have unique id attributes, and the
       </div>
     </div>
   </div>
-</div>```
+</div>
+```
 
 If the URL is yourpage.html#collapseOne, the first accordion item will be expanded.
 Tabs
@@ -95,7 +97,8 @@ For tabs, use the id of each tab as the hash in the URL to switch to the correct
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
     Profile tab content.
   </div>
-</div>```
+</div>
+```
 
 When the URL is yourpage.html#profile, the "Profile" tab will be shown automatically.
 Tooltips and Popovers
@@ -118,7 +121,8 @@ const options = {
   autoInitTooltips: true, // Automatically initialize tooltips
   autoInitPopovers: false, // Automatically initialize popovers
   disableHashSync: false,  // Disable automatic hash synchronization
-};```
+};
+```
 
 ##Contributing
 
