@@ -25,15 +25,15 @@ git clone https://github.com/PKuszka/Bootstrap-5-URL-Hash-Controller-Library.git
 
 Then include the BootstrapHashController.js script in your project.
 
-##Usage
+## Usage
 
 Once the library is installed, it is ready to use. You do not need to initialize it manually; the library automatically hooks into your Bootstrap components when the page is loaded.
-Modals
+
+**Modals**
 
 To make a modal open when the URL hash is set, ensure that the modal has an id attribute and that the URL contains #id:
 
 ```html
-<!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -55,7 +55,8 @@ To make a modal open when the URL hash is set, ensure that the modal has an id a
 ```
 
 Now, when the URL is yourpage.html#myModal, the modal will open automatically.
-Accordions
+
+**Accordions**
 
 For accordions, make sure the accordion items have unique id attributes, and the URL hash will open the corresponding item:
 
@@ -77,7 +78,8 @@ For accordions, make sure the accordion items have unique id attributes, and the
 ```
 
 If the URL is yourpage.html#collapseOne, the first accordion item will be expanded.
-Tabs
+
+**Tabs**
 
 For tabs, use the id of each tab as the hash in the URL to switch to the correct tab:
 
@@ -101,15 +103,18 @@ For tabs, use the id of each tab as the hash in the URL to switch to the correct
 ```
 
 When the URL is yourpage.html#profile, the "Profile" tab will be shown automatically.
-Tooltips and Popovers
+
+**Tooltips and Popovers**
 
 You can optionally initialize Bootstrap tooltips and popovers with the data-bs-toggle attribute. You can control initialization by using a configuration option to enable/disable them.
 
-<!-- Tooltip -->
+```html
 <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">Hover me</button>
+```
 
-<!-- Popover -->
+```html
 <button type="button" class="btn btn-secondary" data-bs-toggle="popover" title="Popover title" data-bs-content="Popover content">Click me</button>
+```
 
 You can configure these in the library's settings for automatic initialization based on data attributes.
 Configuration Options
@@ -124,10 +129,10 @@ const options = {
 };
 ```
 
-##Contributing
+## Contributing
 
 Contributions are welcome! Feel free to submit pull requests, report issues, or suggest features. To contribute, fork the repository and create a pull request with your changes.
 
-##License
+## License
 
 This project is licensed under the MIT License 
