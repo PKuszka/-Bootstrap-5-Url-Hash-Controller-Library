@@ -51,6 +51,7 @@ To make a modal open when the URL hash is set, ensure that the modal has an id a
     </div>
   </div>
 </div>
+```
 
 Now, when the URL is yourpage.html#myModal, the modal will open automatically.
 Accordions
@@ -94,7 +95,7 @@ For tabs, use the id of each tab as the hash in the URL to switch to the correct
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
     Profile tab content.
   </div>
-</div>
+</div>```
 
 When the URL is yourpage.html#profile, the "Profile" tab will be shown automatically.
 Tooltips and Popovers
@@ -112,11 +113,12 @@ Configuration Options
 
 You can configure the library to control how it behaves on your page. Options include enabling or disabling components or tooltips/popovers, setting a delay for opening components, and more.
 
+```js
 const options = {
   autoInitTooltips: true, // Automatically initialize tooltips
   autoInitPopovers: false, // Automatically initialize popovers
   disableHashSync: false,  // Disable automatic hash synchronization
-};
+};```
 
 ##Contributing
 
