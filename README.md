@@ -123,9 +123,9 @@ You can configure the library to control how it behaves on your page. Options in
 
 ```js
 const options = {
-  autoInitTooltips: true, // Automatically initialize tooltips
-  autoInitPopovers: false, // Automatically initialize popovers
-  disableHashSync: false,  // Disable automatic hash synchronization
+  Modals: true, // Automatically initialize tooltips
+  Tabs: false, // Automatically initialize popovers
+  Accordions: false,  // Disable automatic hash synchronization
 };
 ```
 
