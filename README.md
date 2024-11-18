@@ -17,6 +17,7 @@ You can install this library by cloning the repository or by including the scrip
 
 ```html
 <script src="https://cdn.jsdelivr.net/gh/PKuszka/Bootstrap-5-URL-Hash-Controller-Library@main/BootstrapHashController.js"></script>
+```
 
 
 Alternatively, you can clone the repository to use it locally:
