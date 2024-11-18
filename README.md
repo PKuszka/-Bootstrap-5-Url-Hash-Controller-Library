@@ -70,7 +70,7 @@ For accordions, make sure the accordion items have unique id attributes, and the
       </div>
     </div>
   </div>
-</div>
+</div>```
 
 If the URL is yourpage.html#collapseOne, the first accordion item will be expanded.
 Tabs
