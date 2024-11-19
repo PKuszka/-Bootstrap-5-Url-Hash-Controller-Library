@@ -61,7 +61,7 @@ Modal:
     </div>
   </div>
 </div>
-```
+````
 
 ### Hash Processing
 
@@ -69,7 +69,7 @@ The controller listens for changes in the URL hash and attempts to process it. F
 
 ````html
 Example URL: https://example.com#Examplecollapse,exampleModal
-```
+````
 
 ### Custom HTML Attributes
 
