@@ -1,8 +1,10 @@
 class BootstrapHashController {
     constructor() {
+	    
         this.handlers = new Map();
         this.autoHideTime = null;
-		this.delayTime = null;
+	this.delayTime = null;
+	    
         this.defaultHandlersConfig = [
             { type: "modal", handler: this.handleModal },
             { type: "collapse", handler: this.handleCollapse },
