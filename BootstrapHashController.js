@@ -1,3 +1,4 @@
+
 class BootstrapHashController {
     constructor() {
         this.handlers = new Map();
@@ -31,7 +32,7 @@ class BootstrapHashController {
 
         const element = document.querySelector(hash); 
         if (!element) {
-            console.warn(`Element o ID ${hash} nie został znaleziony.`);
+            console.warn(`The element with ID ${hash} was not found.`);
             return;
         }
 
@@ -43,14 +44,13 @@ class BootstrapHashController {
             }
         }
 
-       
-        console.warn(`Brak handlera dla elementu o ID ${hash}.`);
+        console.warn(`No handler for element with ID ${hash}.`);
     }
 
   
     handleAutoFadeout(handler,element) {
         if (element.hasAttribute('data-bs-fadeout')) {
-            const fadeoutTime = parseInt(element.getAttribute('data-bs-fadeout')) || 3000; // Domyślnie 3000ms
+            const fadeoutTime = parseInt(element.getAttribute('data-bs-fadeout')) || 3000; 
             handler(element, fadeoutTime);
         } else { 
 			handler(element);
