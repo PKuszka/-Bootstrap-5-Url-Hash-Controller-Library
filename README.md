@@ -12,11 +12,24 @@ A JavaScript library that handles Bootstrap components (such as modals, tooltips
 
 ## Installation
 
-Simply include the BootstrapHashController class in your project, and make sure you have Bootstrap 5 loaded for the library to function correctly.
+You can include the BootstrapHashController library in your project using various methods. Make sure you have Bootstrap 5 loaded for the library to function correctly.
 
+**Using CDN (Recommended)**
+Include the library directly from a CDN for easy setup:
 ```
 <script src="https://cdn.jsdelivr.net/gh/PKuszka/Bootstrap-5-URL-Hash-Controller-Library@main/BootstrapHashController.js"></script>
 ```
+**Using repository**
+Clone the repository or download the specific file:
+```
+git clone https://github.com/PKuszka/Bootstrap-5-URL-Hash-Controller-Library.git
+```
+Include the JavaScript file in your project:
+```
+<script src="path/to/BootstrapHashController.js"></script>
+```
+Alternatively, download the file manually [here](https://github.com/PKuszka/Bootstrap-5-URL-Hash-Controller-Library/archive/refs/heads/main.zip).
+
 
 ## Usage
 
