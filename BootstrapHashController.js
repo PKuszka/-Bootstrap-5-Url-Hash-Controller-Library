@@ -1,150 +1,153 @@
 class BootstrapHashController {
-    /**
-     * Constructor for BootstrapHashController class
-     * @param {Object} config Configuration object
-     */
-    constructor(config = {}) {
-        const defaultConfig = {
-            Modals: true,
-            Accordions: true,
-            Tabs: true,
-            Tooltips: true,
-            Popovers: true,
-        };
+    constructor() {
+        this.handlers = new Map();
 
-        // Merging user settings with default settings
-        this.config = { ...defaultConfig, ...config };
+        this.defaultBootstrapHandlers();
 
-        // Storing all components
-        this.components = {
-            modal: { class: 'modal', init: this.initModal.bind(this) },
-            accordion: { class: 'collapse', init: this.initAccordion.bind(this) },
-            tab: { class: 'tab-pane', init: this.initTab.bind(this) },
-            tooltip: { selector: '[data-bs-toggle="tooltip"]', init: this.initTooltips.bind(this) },
-            popover: { selector: '[data-bs-toggle="popover"]', init: this.initPopovers.bind(this) },
-        };
-
-        this.init();
+        window.addEventListener("hashchange", () => this.processHash());
+        document.addEventListener("DOMContentLoaded", () => this.processHash());
     }
 
-    init() {
-        this.checkHash();
-        this.setupAnchorListeners();
-
-        // Initializing components based on configuration
-        Object.keys(this.components).forEach(component => {
-            if (this.config[component.charAt(0).toUpperCase() + component.slice(1)]) {
-                const { init, selector, class: className } = this.components[component];
-                if (selector) {
-                    this.initDynamicComponent(selector, init);
-                } else {
-                    this.initDynamicComponentByClass(className, init);
-                }
-            }
-        });
+    defaultBootstrapHandlers() {
+        this.registerHandler("modal", this.handleModal);
+        this.registerHandler("collapse", this.handleCollapse);
+        this.registerHandler("alert", this.handleAlert);
+        this.registerHandler("tooltip", this.handleTooltip);
+        this.registerHandler("offcanvas", this.handleOffcanvas);
+        this.registerHandler("popover", this.handlePopover);
+        this.registerHandler("toast", this.handleToast);
+        this.registerHandler("tab-pane", this.handleTab);
+        this.registerHandler("dropdown", this.handleDropdown);
     }
 
-    // Check hash in URL and perform appropriate actions
-    checkHash() {
-        if (window.location.hash) {
-            const targetId = window.location.hash.slice(1);
-            const targetElement = document.getElementById(targetId);
+   
+    registerHandler(type, handler) {
+        this.handlers.set(type, handler);
+    }
 
-            if (targetElement) {
-                this.handleComponent(targetElement);
+    processHash() {
+        const hash = window.location.hash; 
+        if (!hash) return;
+
+        const element = document.querySelector(hash); 
+        if (!element) {
+            console.warn(`Element o ID ${hash} nie został znaleziony.`);
+            return;
+        }
+
+       
+        for (const [type, handler] of this.handlers) {
+            if (element.classList.contains(type)) {
+                this.handleAutoFadeout(handler,element);
+                return;
             }
+        }
+
+       
+        console.warn(`Brak handlera dla elementu o ID ${hash}.`);
+    }
+
+  
+    handleAutoFadeout(handler,element) {
+        if (element.hasAttribute('data-bs-fadeout')) {
+            const fadeoutTime = parseInt(element.getAttribute('data-bs-fadeout')) || 3000; // Domyślnie 3000ms
+            handler(element, fadeoutTime);
+        } else { 
+			handler(element);
+		}
+    }
+
+    handleModal(element, autohide = false) {
+       
+		const modal = new bootstrap.Modal(element);
+		modal.show(); 
+		
+		if(autohide) { setTimeout(() => {
+			modal.hide();
+		}, autohide); }
+			
+    }
+
+    handleCollapse(element, autohide = false) {
+		const collapse = new bootstrap.Collapse(element, { toggle: true });
+
+		
+		if (autohide) {
+			setTimeout(() => {
+				alert(1);
+				const collapse = new bootstrap.Collapse(element, { toggle: true });
+			}, autohide);
+		}
+	}
+
+    handleAlert(element, autohide = false) {
+        element.classList.add("show");
+    }
+
+    handleTooltip(element, autohide = false) {
+        const tooltip = new bootstrap.Tooltip(element);
+        tooltip.show();
+		
+		if(autohide) { setTimeout(() => {
+			tooltip.hide();
+		}, autohide); }
+    }
+
+    handleOffcanvas(element, autohide = false) {
+        const offcanvas = new bootstrap.Offcanvas(element);
+        offcanvas.show();
+		
+		if(autohide) { setTimeout(() => {
+			offcanvas.hide();
+		}, autohide); }
+    }
+
+    handlePopover(element, autohide = false) {
+        const popover = new bootstrap.Popover(element);
+        popover.show();
+		
+		if(autohide) { setTimeout(() => {
+			popover.hide();
+		}, autohide); }
+    }
+
+    handleToast(element, autohide = false) {
+        const toast = new bootstrap.Toast(element);
+        toast.show();
+		
+		if(autohide) { setTimeout(() => {
+			toast.hide();
+		}, autohide); }
+    }
+
+    handleTab(element, autohide = false) {
+        const triggerEl = document.querySelector(`[role="tab"][href="#${element.id}"], [role="tab"][data-bs-target="#${element.id}"]`);
+        if (triggerEl) {
+            const tabInstance = bootstrap.Tab.getOrCreateInstance(triggerEl);
+            tabInstance.show();
+			
+			if(autohide) { setTimeout(() => {
+				tabInstance.hide();
+			}, autohide); }
         }
     }
 
-    // Add event listeners for links with hashes
-    setupAnchorListeners() {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', () => {
-                const targetId = anchor.getAttribute('href').slice(1);
-                const targetElement = document.getElementById(targetId);
-
-                if (targetElement) {
-                    this.handleComponent(targetElement);
-                }
-            });
-        });
-    }
-
-    // Initialize any component based on class name
-    initDynamicComponentByClass(className, initFunction) {
-        document.querySelectorAll(`.${className}`).forEach(element => {
-            if (this.shouldEnable(element)) {
-                initFunction(element);
-            }
-        });
-    }
-
-    // Initialize component based on selector
-    initDynamicComponent(selector, initFunction) {
-        const elements = document.querySelectorAll(selector);
-        elements.forEach(element => {
-            if (this.shouldEnable(element)) {
-                initFunction(element);
-            }
-        });
-    }
-
-    // Handles initialization of the appropriate component
-    handleComponent(targetElement) {
-        Object.keys(this.components).forEach(component => {
-            const { class: className, init } = this.components[component];
-            if (targetElement.classList.contains(className)) {
-                init(targetElement);
-            }
-        });
-    }
-
-    // Function to initialize modals
-    initModal(targetElement) {
-        const modal = new bootstrap.Modal(targetElement);
-        modal.show();
-    }
-
-    // Function to initialize accordions
-    initAccordion(targetElement) {
-        const accordion = new bootstrap.Collapse(targetElement, { toggle: true });
-    }
-
-    // Function to initialize tabs
-    initTab(targetElement) {
-        const tabTrigger = document.querySelector(`[data-bs-target="#${targetElement.id}"], a[href="#${targetElement.id}"]`);
-        if (tabTrigger) {
-            const tab = new bootstrap.Tab(tabTrigger);
-            tab.show();
+    handleDropdown(element, autohide = false) {
+        const dropdownToggleEl = element.querySelector('.dropdown-toggle');
+        if (dropdownToggleEl) {
+            const dropdownInstance = new bootstrap.Dropdown(dropdownToggleEl);
+            dropdownInstance.show(); 
+			
+			if(autohide) { setTimeout(() => {
+				dropdownInstance.hide();
+			}, autohide); }
         }
-    }
-
-    // Function to initialize tooltips
-    initTooltips(targetElement) {
-        new bootstrap.Tooltip(targetElement);
-    }
-
-    // Function to initialize popovers
-    initPopovers(targetElement) {
-        new bootstrap.Popover(targetElement);
-    }
-
-    // Function to check if an element should be enabled
-    shouldEnable(element) {
-        const dataStorage = element.getAttribute('data-linkable');
-        return dataStorage !== 'false';
     }
 }
 
-// Initialize the plugin with configuration
-document.addEventListener("DOMContentLoaded", () => {
-    const pluginConfig = {
-        Modals: true,
-        Accordions: true,
-        Tabs: true,
-        Tooltips: true,
-        Popovers: true, 
-    };
 
-    new BootstrapHashController(pluginConfig);
+const hashController = new BootstrapHashController();
+
+hashController.registerHandler("custom-type", (element) => {
+    element.style.backgroundColor = "yellow";
 });
