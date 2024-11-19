@@ -22,15 +22,17 @@ Simply include the BootstrapHashController class in your project, and make sure 
 ## Usage
 
 ```
-<div id="exampleModal" data-bs-fadeout="3000" data-bs-delay="500" data-bs-scroll="true"></div>
+<div class="collapse collapse-horizontal" id="Examplecollapse" data-bs-fadeout="3000" data-bs-delay="500" data-bs-scroll="true">
+      this text will only be displayed if you add #Examplecollapse in the url
+</div>
 ```
 
 ### Hash Processing
 
-The controller listens for changes in the URL hash and attempts to process it. For example, if the URL is #exampleModal
+The controller listens for changes in the URL hash and attempts to process it. For example, if the URL is #Examplecollapse
 
 ```
-Example URL: https://example.com#exampleModal
+Example URL: https://example.com#Examplecollapse
 ```
 
 ### Custom HTML Attributes
