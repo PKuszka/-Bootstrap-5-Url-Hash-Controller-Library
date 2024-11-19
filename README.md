@@ -29,6 +29,12 @@ Include the JavaScript file in your project:
 <script src="path/to/BootstrapHashController.js"></script>
 ```
 
+### Using npm 
+Install the library:
+```
+npm install github:PKuszka/Bootstrap-5-URL-Hash-Controller-Library
+```
+
 Alternatively, download the file manually [here](https://github.com/PKuszka/Bootstrap-5-URL-Hash-Controller-Library/archive/refs/heads/main.zip).
 
 
