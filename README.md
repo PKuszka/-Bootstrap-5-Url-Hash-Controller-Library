@@ -41,13 +41,13 @@ Alternatively, download the file manually [here](https://github.com/PKuszka/Boot
 ## Usage
 
 Collapse:
-```
+````html
 <div class="collapse collapse-horizontal" id="Examplecollapse" data-bs-delay="1000" data-bs-scroll="true">
       this text will only be displayed if you add #Examplecollapse in the url
 </div>
-```
+````
 Modal:
-```
+````html
 <div class="modal fade" id="exampleModal" tabindex="-1" data-bs-fadeout="10000">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -67,7 +67,7 @@ Modal:
 
 The controller listens for changes in the URL hash and attempts to process it. For example, if the URL is Examplecollapse,exampleModal, it will try to open both #Examplecollapse and #exampleModal if they exist on the page.
 
-```
+````html
 Example URL: https://example.com#Examplecollapse,exampleModal
 ```
 
