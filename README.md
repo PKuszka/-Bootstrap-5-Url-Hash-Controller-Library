@@ -14,5 +14,25 @@ A JavaScript library that handles Bootstrap components (such as modals, tooltips
 
 Simply include the BootstrapHashController class in your project, and make sure you have Bootstrap 5 loaded for the library to function correctly.
 
+```
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="path/to/BootstrapHashController.js"></script>
+```
+
+## Usage
+
+### Hash Processing
+
+The controller listens for changes in the URL hash and attempts to process it. For example, if the URL is #modal1,tooltip2, it will try to open both #modal1 and #tooltip2 if they exist on the page.
+
+```
+Example URL: https://example.com#modal1,tooltip2
+```
+
+### Custom HTML Attributes
+
+You can control the behavior of components via custom attributes:
+
+- ```data-bs-fadeout:``` Time in milliseconds after which the component will automatically hide (only supported for modal, toast, offcanvas, popover, and tooltip).
+- ```data-bs-delay:``` Delay in milliseconds before the component is shown (only supported for modal, toast, offcanvas, popover, and tooltip).
+- ```data-bs-scroll:``` Scrolls the page to the element with smooth scrolling (supported for all elements).
