@@ -21,12 +21,16 @@ Simply include the BootstrapHashController class in your project, and make sure 
 
 ## Usage
 
+```
+<div id="exampleModal" data-bs-fadeout="3000" data-bs-delay="500" data-bs-scroll="true"></div>
+```
+
 ### Hash Processing
 
-The controller listens for changes in the URL hash and attempts to process it. For example, if the URL is #modal1,tooltip2, it will try to open both #modal1 and #tooltip2 if they exist on the page.
+The controller listens for changes in the URL hash and attempts to process it. For example, if the URL is #exampleModal
 
 ```
-Example URL: https://example.com#modal1,tooltip2
+Example URL: https://example.com#exampleModal
 ```
 
 ### Custom HTML Attributes
