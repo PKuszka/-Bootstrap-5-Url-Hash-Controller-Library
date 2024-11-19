@@ -16,7 +16,7 @@ Simply include the BootstrapHashController class in your project, and make sure 
 
 ```
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="path/to/BootstrapHashController.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/PKuszka/Bootstrap-5-URL-Hash-Controller-Library@main/BootstrapHashController.js"></script>
 ```
 
 ## Usage
