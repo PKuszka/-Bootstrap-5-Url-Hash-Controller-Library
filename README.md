@@ -42,3 +42,18 @@ You can control the behavior of components via custom attributes:
 - ```data-bs-fadeout:``` Time in milliseconds after which the component will automatically hide (only supported for modal, toast, offcanvas, popover, and tooltip).
 - ```data-bs-delay:``` Delay in milliseconds before the component is shown (only supported for modal, toast, offcanvas, popover, and tooltip).
 - ```data-bs-scroll:``` Scrolls the page to the element with smooth scrolling (supported for all elements).
+
+## Available Bootstarp components
+
+The library comes with default handlers for the following Bootstrap components:
+
+- Modal 
+- Collapse
+- Fade 
+- Alert
+- Tooltip 
+- Offcanvas 
+- Popover 
+- Toast 
+- Tab Pane
+- Dropdown 
