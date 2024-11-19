@@ -4,10 +4,21 @@ This library enables easy integration of Bootstrap 5 components like **modals**,
 
 ## Features
 
-- **Modals**: Automatically opens modals when the URL contains a hash corresponding to the modal's `id`.
-- **Accordions**: Automatically toggles accordion panels based on the URL hash, providing instant access to specific sections.
-- **Enable/Disable Components**: Use the `data-hash` attribute to control whether an element can be linked to via URL hash. If `data-hash="false"` is set, that element will be ignored by the library.
+The library comes with default handlers for various Bootstrap 5 components, but you can also register custom handlers for other elements.
+Default Handlers
 
+These handlers are registered automatically for the following components:
+
+- Modal
+- Collapse (Accordion)
+- Fade 
+- Alert
+- Tooltip
+- Offcanvas
+- Popover
+- Toast
+- Tab-Pane
+- Dropdown
 
 ## Installation
 
