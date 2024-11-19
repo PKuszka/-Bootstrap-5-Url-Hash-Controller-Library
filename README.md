@@ -21,7 +21,7 @@ Include the library directly from a CDN for easy setup:
 ````
 ### Using repository 
 Clone the repository or download the specific file:
-````git
+````html
 git clone https://github.com/PKuszka/Bootstrap-5-URL-Hash-Controller-Library.git
 ````
 Include the JavaScript file in your project:
