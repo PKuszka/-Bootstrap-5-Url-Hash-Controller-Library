@@ -37,10 +37,10 @@ class BootstrapHashController {
     }
 
       processHash() {
-        const hash = window.location.hash.slice(1); // Usunięcie znaku '#' z początku
+        const hash = window.location.hash.slice(1); 
         if (!hash) return;
 
-        const ids = hash.split(','); // Podzielienie hash na wiele ID (oddzielonych przecinkami)
+        const ids = hash.split(','); 
 
         ids.forEach(id => {
             const element = document.querySelector(`#${id}`);
@@ -53,6 +53,11 @@ class BootstrapHashController {
     }
 
     executeHandler(element) {
+	
+		if (this.isDisabled(element)) {
+            return; 
+        }
+	
         for (const [type, handler] of this.handlers) {
             if (element.classList.contains(type)) {
 				this.handleScroll(element);
@@ -80,6 +85,10 @@ class BootstrapHashController {
 	getDelayTime(element) {
         const delayTime = element.getAttribute('data-bs-delay');
         return delayTime ? parseInt(delayTime) : null; 
+    }
+
+	isDisabled(element) {
+        return element.hasAttribute('data-bs-disabled') && element.getAttribute('data-bs-disabled') === 'true';
     }
 
     handleError(message) {
@@ -149,7 +158,6 @@ class BootstrapHashController {
         if (scrollValue) {
             const scrollTime = parseInt(scrollValue);
             if (scrollTime) {
-                // Scroll the page smoothly to the element
                 window.scrollTo({
                     top: element.offsetTop,
                     behavior: 'smooth',
@@ -178,7 +186,6 @@ class BootstrapHashController {
 	}
 }
 
-// Initialize the BootstrapHashController instance
 const hashController = new BootstrapHashController();
 
 // Example of registering a custom handler
