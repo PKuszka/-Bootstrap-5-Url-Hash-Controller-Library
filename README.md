@@ -16,9 +16,9 @@ You can include the BootstrapHashController library in your project using variou
 
 ### Using CDN (Recommended)
 Include the library directly from a CDN for easy setup:
-```
+````html
 <script src="https://cdn.jsdelivr.net/gh/PKuszka/Bootstrap-5-URL-Hash-Controller-Library@main/BootstrapHashController.js"></script>
-```
+````
 ### Using repository 
 Clone the repository or download the specific file:
 ```
