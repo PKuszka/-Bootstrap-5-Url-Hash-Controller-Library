@@ -21,18 +21,35 @@ Simply include the BootstrapHashController class in your project, and make sure 
 
 ## Usage
 
+Collapse:
 ```
-<div class="collapse collapse-horizontal" id="Examplecollapse" data-bs-fadeout="3000" data-bs-delay="500" data-bs-scroll="true">
+<div class="collapse collapse-horizontal" id="Examplecollapse" data-bs-delay="1000" data-bs-scroll="true">
       this text will only be displayed if you add #Examplecollapse in the url
+</div>
+```
+Modal:
+```
+<div class="modal fade" id="exampleModal" tabindex="-1" data-bs-fadeout="10000">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+    </div>
+  </div>
 </div>
 ```
 
 ### Hash Processing
 
-The controller listens for changes in the URL hash and attempts to process it. For example, if the URL is #Examplecollapse
+The controller listens for changes in the URL hash and attempts to process it. For example, if the URL is Examplecollapse,exampleModal, it will try to open both #Examplecollapse and #exampleModal if they exist on the page.
 
 ```
-Example URL: https://example.com#Examplecollapse
+Example URL: https://example.com#Examplecollapse,exampleModal
 ```
 
 ### Custom HTML Attributes
